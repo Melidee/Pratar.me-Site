@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+#Gitpod files
+.gitpod.yml
+
+# Developer Scripts
+init.sh
+ 
