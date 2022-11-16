@@ -9,5 +9,6 @@
 <style scoped>
 main {
   background-color: aqua;
+  height: 100%;
 }
 </style>

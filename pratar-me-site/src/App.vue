@@ -17,16 +17,25 @@ import MainBox from "./components/MainBox/MainBox.vue";
 </template>
 
 <style scoped>
+main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 10px;
+}
+
 .leftContainer {
-  width: calc(20% - 30px );
-  margin-left: 20px;
+  position: relative;
+  width: calc(20% - 30px);
+  margin-right: 10px;
+  height: 97vh;
 }
 
 .rightContainer {
-  display: flexbox;
-  float: right;
-  margin-right: 20px;
+  padding: 0;
+  margin-left: 10px;
   width: calc(80% - 30px);
   flex-direction: column;
+  height: 97vh;
 }
 </style>
