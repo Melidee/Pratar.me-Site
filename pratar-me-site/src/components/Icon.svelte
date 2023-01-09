@@ -8,9 +8,9 @@
   }
 </script>
 
-<main>
+<section>
   <img {src} alt="icon" style="height:{diameter};width:{diameter}" />
-</main>
+</section>
 
 <style>
   img {

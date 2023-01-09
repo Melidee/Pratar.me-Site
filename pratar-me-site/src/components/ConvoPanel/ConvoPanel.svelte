@@ -1,10 +1,13 @@
 <script lang="ts">
   import type { Conversation } from "../../types";
   import ConvoButton from "./ConvoButton.svelte";
-  export let convos: Array<Conversation> = [];
+  import ConvoSearch from "./ConvoSearch.svelte";
+  import { conversations } from "../../stores";
+  let convos = $conversations;
 </script>
 
 <main>
+  <ConvoSearch/>
   {#each convos as convo}
     <ConvoButton {convo} />
   {/each}

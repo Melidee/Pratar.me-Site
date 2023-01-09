@@ -4,19 +4,21 @@
 
 <main>
     <UploadButton/>
-<input type="text">
+    <input type="text">
 </main>
 
 <style>
     main {
         display: flex;
-        width: 75vw;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
-        background-color: chartreuse;
+        background-color: rgba(102, 0, 255, 0.9);
+        border-radius: 20px;
+        
     }
     input {
-        width: 65vw;
         margin: 10px;
+        width: calc(100% - 45px);
     }
 </style>

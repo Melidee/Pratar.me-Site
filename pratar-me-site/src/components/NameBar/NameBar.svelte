@@ -5,19 +5,19 @@
   export let user: User;
 </script>
 
-<main>
+<section>
   <div class="icon">
-    <Icon src={user.pfp} diameter="3.5vh" />
+    <Icon src={user.pfp} diameter="35px" />
   </div>
   <h1>{user.name}</h1>
-</main>
+</section>
 
 <style>
   :root {
-    --height: 6vh;
+    --height: 50px;
   }
 
-  main {
+  section {
     margin-top: 0px;
     background: rgb(102, 0, 255);
     background: linear-gradient(
@@ -28,6 +28,7 @@
     );
     height: var(--height);
     border-radius: 12px;
+    padding: 3px;
     padding-left: 12px;
     display: flex;
     align-content: center;
@@ -38,13 +39,13 @@
     padding: 0;
     font-weight: 300;
     line-height: var(--height);
-    font-size: 3vh;
+    font-size: 25px;
     color: #ffffff;
   }
 
   .icon {
     height: 4vh;
-    margin-top: 1vh;
+    margin-top: 3.5px;
     margin-right: 7px;
   }
 </style>

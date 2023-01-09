@@ -1,29 +1,30 @@
 <script lang="ts">
   import NameBar from "./components/NameBar/NameBar.svelte";
-  import MessageBox from "./components/MessageBox/MessageBox.svelte";
+  import MainBox from "./components/MainBox/MainBox.svelte";
   import ConvoPanel from "./components/ConvoPanel/ConvoPanel.svelte";
-  import { conversations, selfUser } from "./data";
+  import { conversations, selfUser } from "./stores";
   import type { Conversation, Message, User } from "./types";
+  
 
-  let self = $selfUser
-  let convos = $conversations
-  let currentConvo = $conversations[0]
+  let self = $selfUser;
+  let convos = $conversations;
+  let currentConvo = $conversations[0];
 </script>
 
 <main>
   <div class="leftContainer">
-    <ConvoPanel {convos} />
+    <ConvoPanel />
   </div>
   <div class="rightContainer">
     <NameBar user={self} />
-    <MessageBox convo={currentConvo}/>
+    <MainBox />
   </div>
 </main>
 
 <style>
   main {
     margin: 20px;
-    height: calc(97vh - 20px);
+    height: calc(100vh - 40px);
   }
 
   .leftContainer {
