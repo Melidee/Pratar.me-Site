@@ -1,21 +1,23 @@
 <script lang="ts">
-  import { conversations } from '../../stores';
-  import Fuse from 'fuse.js'
-  const options = {
-    keys: []
-  }
-  const fuse = new Fuse($conversations, options)
-  let searchStr = "";
-  console.log(fuse.search(searchStr));
-  let filteredConvos = $conversations
+  import { createEventDispatcher, onMount } from "svelte";
+  import { conversations } from "../../stores";
+  import type { Conversation } from "../../types";
+  const dispatch = createEventDispatcher();
+
+  export let searchStr = "";
 </script>
 
 <section>
-  <input type="convoSearch" placeholder="Search for conversations" bind:value="{searchStr}"/>
+  <input
+    type="convoSearch"
+    placeholder="Search for conversations"
+    bind:value={searchStr}
+    on:input={() => { dispatch('newFilter', searchStr) }}
+  />
 </section>
 
 <style>
-    /* TODO: improve styling of search box */
+  /* TODO: improve styling of search box */
   section {
     display: flexbox;
   }
@@ -30,7 +32,7 @@
     border-color: rgba(39, 39, 39, 1);
     border-style: solid;
     padding: 5px;
-    color: #FFFFFF;
+    color: #ffffff;
     padding-left: 10px;
   }
 

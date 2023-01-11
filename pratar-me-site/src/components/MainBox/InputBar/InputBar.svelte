@@ -1,10 +1,21 @@
 <script lang="ts">
     import UploadButton from "./UploadButton.svelte";
+    import { currentConvo, selfUser } from "../../../stores";
+  import { Message } from "../../../types";
+  import ConvoButton from "../../ConvoPanel/ConvoButton.svelte";
+
+    let text:string = "";
+    const keyHandler = (event) => {
+        if (event.key=="Enter") {
+            $currentConvo.messages = [new Message($selfUser, 0, text), ...$currentConvo.messages];
+            text = ""
+        }
+    }
 </script>
 
 <main>
     <UploadButton/>
-    <input type="text">
+    <input type="text" bind:value={text} on:keypress={keyHandler}>
 </main>
 
 <style>
