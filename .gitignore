@@ -29,4 +29,10 @@ dist-ssr
 
 # Developer Scripts
 init.sh
- 
+
+# Testing and playground files
+*playground*
+*play*
+*sandbox*
+
+# Firebase configuration data
