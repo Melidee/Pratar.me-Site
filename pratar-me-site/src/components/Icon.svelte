@@ -1,11 +1,8 @@
 <script lang="ts">
-  export let src: string;
   export let diameter: string;
-  const defaultImage =
+  export const src =
     "https://us.123rf.com/450wm/gudinny/gudinny1911/gudinny191100227/gudinny191100227.jpg?ver=6";
-  if (src == undefined) {
-    src = defaultImage;
-  }
+  console.log(src)
 </script>
 
 <section>
