@@ -1,15 +1,22 @@
 <script lang="ts">
   import type { Message } from "../../types";
+  import { writable, get } from "svelte/store";
   import MessageBubble from "./MessageBubble.svelte";
   export let messages: Array<Message> = [];
+
+    
+
+  export let update: boolean;
 </script>
 
 <section id="mainbox">
-  {#each messages as message}
-    <div class="full-length">
-      <MessageBubble messageData={message} />
-    </div>
-  {/each}
+  {#key update}
+    {#each messages as message}
+      <div class="full-length">
+        <MessageBubble messageData={message} />
+      </div>
+    {/each}
+  {/key}
 </section>
 
 <style>

@@ -2,11 +2,13 @@
   import { get } from "svelte/store";
   import type { Message } from "../../types";
   import { selfUser } from "../../stores";
+  import { onMount } from "svelte";
 
   export let messageData: Message;
-  let self = get(selfUser);
 
-  let cls = Object.is(messageData.author, self)
+  console.log()
+
+  let cls = Object.is(messageData.author, $selfUser)
     ? "sent-by-self"
     : "sent-by-other";
 </script>
@@ -24,10 +26,9 @@
     margin-right: 0.2vh;
     padding: 10px;
     border-radius: 20px;
-    color: #FFF;
+    color: #fff;
     display: flex;
     max-width: 60%;
-    
   }
 
   p {

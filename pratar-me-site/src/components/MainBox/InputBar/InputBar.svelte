@@ -1,14 +1,20 @@
 <script lang="ts">
+    import { createEventDispatcher } from 'svelte';
     import UploadButton from "./UploadButton.svelte";
     import { currentConvo, selfUser } from "../../../stores";
   import { Message } from "../../../types";
-  import ConvoButton from "../../ConvoPanel/ConvoButton.svelte";
+    const dispatch = createEventDispatcher()
+
+    let messageSent = false;
+    
 
     let text:string = "";
     const keyHandler = (event) => {
         if (event.key=="Enter") {
             $currentConvo.messages = [new Message($selfUser, 0, text), ...$currentConvo.messages];
             text = ""
+            dispatch("messageSent")
+            messageSent = !messageSent
         }
     }
 </script>

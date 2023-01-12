@@ -4,11 +4,13 @@
     import InputBar from "./InputBar/InputBar.svelte";
     import MessageBox from "./MessageBox.svelte";
     import { currentConvo } from "../../stores";
+
+    let messageSent;
   </script>
   
   <section>
-    <InputBar/>
-    <MessageBox messages={$currentConvo.messages} />
+    <InputBar on:messageSent={() => {messageSent = !messageSent}}/>
+    <MessageBox messages={$currentConvo.messages} update={messageSent} />
   </section>
   
   <style>
