@@ -36,3 +36,4 @@ init.sh
 *sandbox*
 
 # Firebase configuration data
+firebase_config.json
