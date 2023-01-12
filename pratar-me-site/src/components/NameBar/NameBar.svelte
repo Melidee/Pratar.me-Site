@@ -7,7 +7,7 @@
 
 <section>
   <div class="icon">
-    <Icon src={user.pfp} diameter="35px" />
+    <Icon src={user.icon} diameter="35px" />
   </div>
   <h1>{user.name}</h1>
 </section>

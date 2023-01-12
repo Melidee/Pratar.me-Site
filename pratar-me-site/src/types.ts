@@ -1,23 +1,23 @@
 export class User {
   name: string;
   userName: string;
-  pfp: string;
+  icon : string;
 
-  constructor(name, userName, pfp) {
+  constructor(name, userName, icon) {
     this.name = name;
     this.userName = userName;
-    this.pfp = pfp;
+    this.icon = icon;
   }
 }
 
 export class Message {
   author:User;
-  timestamp:number;
+  date:EpochTimeStamp;
   body:string;
 
-  constructor(author, timestamp, body) {
+  constructor(author, date, body) {
     this.author = author;
-    this.timestamp = timestamp;
+    this.date = date;
     this.body = body;
   }
 }
