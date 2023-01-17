@@ -38,6 +38,7 @@
     margin: 0;
     padding: 0;
     font-weight: 300;
+    font-family: inherit;
     line-height: var(--height);
     font-size: 25px;
     color: #ffffff;

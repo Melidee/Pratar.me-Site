@@ -3,9 +3,6 @@
   import { writable, get } from "svelte/store";
   import MessageBubble from "./MessageBubble.svelte";
   export let messages: Array<Message> = [];
-
-    
-
   export let update: boolean;
 </script>
 

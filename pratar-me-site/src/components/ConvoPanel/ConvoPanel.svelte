@@ -3,11 +3,20 @@
   import ConvoButton from "./ConvoButton.svelte";
   import ConvoSearch from "./ConvoSearch.svelte";
   import { conversations } from "../../stores";
-  let convos = $conversations;
+  let convos: Array<Conversation> = $conversations;
+
+  let searchStr = "";
+
+  const filter = () => {
+    convos = $conversations.filter((convo) => {
+      let title = convo.title
+      return convo.title.includes(searchStr);
+    });
+  };
 </script>
 
 <main>
-  <ConvoSearch/>
+  <ConvoSearch on:newFilter={filter} bind:searchStr={searchStr} />
   {#each convos as convo}
     <ConvoButton {convo} />
   {/each}
