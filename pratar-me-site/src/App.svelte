@@ -5,6 +5,7 @@
   import { conversations, selfUser } from "./stores";
   import type { Conversation, Message, User } from "./types";
   
+  
 
   let self = $selfUser;
   let convos = $conversations;

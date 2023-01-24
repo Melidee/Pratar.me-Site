@@ -1,30 +1,35 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
-  import { each } from "svelte/internal";
+  import { initializeFirebase } from "../../firebase_init";
+  import { createEventDispatcher } from "svelte";
   import { get, type Readable } from "svelte/store";
-  import { currentConvo } from '../../stores';
+  import { each } from "svelte/internal";
+  import { currentConvo } from "../../stores";
   import type { Conversation, User } from "../../types";
   import Icon from "../Icon.svelte";
+
   export let convo: Conversation;
   const dispatch = createEventDispatcher();
 
-  const deconstructMembers = (members:Array<User>) => {
-    let str = ""
-    members.forEach(member => {
-      str = str + member.name + ", "
+  const deconstructMembers = (members: Array<User>) => {
+    let str = "";
+    members.forEach((member) => {
+      str = str + member.name + ", ";
     });
-    return str.slice(0, -2)
-  }
-  let memberString = deconstructMembers(convo.members)
+    return str.slice(0, -2);
+  };
+  let memberString = deconstructMembers(convo.members);
 
   const emitConvo = () => {
-    currentConvo.set(convo)
-  }
+    initializeFirebase().then((v) => {
+      console.log(v);
+    })
+    currentConvo.set(convo);
+  };
 </script>
 
 <button on:click={emitConvo}>
   <div class="icon">
-    <Icon src={convo.icon} diameter="calc(26px + 0.5vw)"/>
+    <Icon src={convo.icon} diameter="calc(26px + 0.5vw)" />
   </div>
   <div>
     <h3>{convo.title}</h3>
@@ -59,7 +64,7 @@
 
   h3 {
     margin-top: calc(4px + 0.3vw);
-    color: #FFF;
+    color: #fff;
     font-weight: 400;
     font-size: 16px;
     margin-bottom: 5px;

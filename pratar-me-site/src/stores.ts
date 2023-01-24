@@ -1,12 +1,13 @@
 import { writable, get } from "svelte/store";
-import { User, Conversation, Message } from "./types";
+import { Conversation, User, type Message } from "./types";
 
 // PROD: delete default data from stores
-export const selfUser = writable<User>(
-  new User("Test User", "UserTest@instance.pratar", undefined)
-);
-export const friends = writable<Array<User>>();
-export const conversations = writable<Array<Conversation>>([
+export const selfUser = writable<User>(new User("", "", "", "", []));
+export const conversations = writable<Array<Conversation>>([new Conversation("", "", [], [])]);
+export const currentConvo = writable<Conversation>(get(conversations)[0]);
+
+/* 
+[
   new Conversation("Test Conversation 1", undefined, [get(selfUser), get(selfUser)], [
     new Message(
       get(selfUser),
@@ -143,5 +144,5 @@ export const conversations = writable<Array<Conversation>>([
       "Frank Norris is cool"
     ),
   ]),
-]);
-export const currentConvo = writable<Conversation>(get(conversations)[0]);
+]
+*/
