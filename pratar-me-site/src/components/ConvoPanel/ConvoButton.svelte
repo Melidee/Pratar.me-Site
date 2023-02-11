@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { initializeFirebase } from "../../firebase_init";
   import { createEventDispatcher } from "svelte";
   import { get, type Readable } from "svelte/store";
   import { each } from "svelte/internal";
@@ -20,9 +19,6 @@
   let memberString = deconstructMembers(convo.members);
 
   const emitConvo = () => {
-    initializeFirebase().then((v) => {
-      console.log(v);
-    })
     currentConvo.set(convo);
   };
 </script>
